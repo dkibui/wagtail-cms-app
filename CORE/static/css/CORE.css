@@ -1,0 +1,8 @@
+.hero-img {
+    min-height: 480px;
+}
+
+img {
+    display: block;
+    width: 100%;
+}

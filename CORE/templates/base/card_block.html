@@ -1,0 +1,17 @@
+{% load wagtailimages_tags %}
+
+<div class="container">
+    <div class="card-group">
+        {% for card in self.cards %}
+        {% image card.image fill-300x220 as img %}
+        <div class="card">
+            <img src="{{ img.url }}" class="card-img-top" alt="{{ img.alt }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ card.title }}</h5>
+                <p class="card-text">{{ card.text }}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

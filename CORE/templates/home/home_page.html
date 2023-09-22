@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+    {% image self.banner_image min-2560x480 as img %}
+    <div>
+        <div class="jumbotron">
+          <h1 class="display-4">{{ self.banner_title }}</h1>
+          <p class="lead">{{ self.banner_subtitle | richtext }}</p>
+          <hr class="my-4">
+          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
+    </div>
+    <div class="container hero-img" style="background-image: url('{{img.url}}'); background-size: cover; background-repeat: no-repeat">Hello
+    </div>
+{% endblock %}

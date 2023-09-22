@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+    <div class="container">
+        <article>
+        {% for block in page.body %}
+            {% if block.block_type == 'heading' %}
+                <h1>{{ block.value }}</h1>
+            {% elif block.block_type == 'paragraph' %}
+                <div class="texting">{{ block.value | richtext }}</div>
+            {% elif block.block_type == 'image' %}
+                {% image block.value original as img %}
+                <div class="img">
+                    <img class="what-now" src="{{ img.url }}" alt="{{ img.alt }}">
+                </div>
+            {% else %}
+                <section class="block-{{ block.block_type }}">
+                    {% include_block block %}
+                </section>
+            {% endif %}
+        {% endfor %}
+        </article>
+    </div>
+{% endblock %}
